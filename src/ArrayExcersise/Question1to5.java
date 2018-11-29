@@ -11,8 +11,8 @@
  *                  to enter the number of numbers you want to enter.
  *              3- in addition to question 1 and 2 the program should prompt
  *                  the user to choose a number to be entered then print that 
- *                  number to the output. this should work until a negative 
- *                  number is entered
+ *                  number to the output. this should work until -1 
+ *                  is entered
  *              4- in addition to question 1,2,and 3 this program should allow
  *                  the user to change individual parts of the list
  *              5- lastly in addition to all of the above questions the program 
@@ -55,6 +55,7 @@ public class Question1to5 {  // begin class
         int actualLength = 0;       // actual length of array
         int[] list = new int[100];
         int reverse = 0;
+        int index = 0;
        
     // ***** create objects *******
     
@@ -75,12 +76,14 @@ public class Question1to5 {  // begin class
 //        
           actualLength = Integer.parseInt(JOptionPane.showInputDialog("enter the amount of numbers you want"));
           loadList(list, actualLength);
-         
+          
+   
     // ************************ processing ***************************
        
-
+    
+    
     // ************************ print output ****************************
-       
+     
             System.out.println("Original: ");
             printList(actualLength, list);
             System.out.println("    ");
@@ -88,7 +91,13 @@ public class Question1to5 {  // begin class
             System.out.println("Reverse: ");
             printReverse(actualLength, list);
             System.out.println("   ");
-    
+            
+           // index = Integer.parseInt(JOptionPane.showInputDialog("Enter the position of the number you would like to know."));
+            System.out.println("Number chosen: ");
+            printIndex(list,index);
+            System.out.println("   ");
+            
+            
     // ******** closing message *********
         
         System.out.println("end of processing.");
@@ -151,11 +160,10 @@ public class Question1to5 {  // begin class
    }// end loadlist
    
     /***********************************************************
-    *   Purpose: Create a banner string that can be used to 
-    *           print the banner to a message dialog or the console
-    *           window
-    *   Interface:  no parameters
-    *   Returns:    no return
+    *   Purpose: to reverse the order of the list
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:  return len
     /**************************************************************/
     public static int printReverse(int len, int[] list){
         for(int i = len -1; 0 <= i; i--){
@@ -164,6 +172,30 @@ public class Question1to5 {  // begin class
         }
         return len;
     } // end print reverse
+    
+    /***********************************************************
+    *   Purpose: Print the number the user choose
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    no return
+    /**************************************************************/
+    public static int printIndex(int[] list, int index){
+        
+            int i = index; 
+            
+            index = Integer.parseInt(JOptionPane.showInputDialog("Enter the position of the number you would like to know."));
+       
+            while (index != -1){
+                
+            System.out.print(list[index]);
+            index = Integer.parseInt(JOptionPane.showInputDialog("Enter another number you want to know from the list; enter -1 to quit"));
+            
+                
+            }//end while index != -1  
+            return index;
+            
+    } // end print index
+        
     
  /***********************************************************
     *   Purpose: Create a banner string that can be used to 
