@@ -56,7 +56,8 @@ public class Question1to5 {  // begin class
         int[] list = new int[100];
         int reverse = 0;
         int index = 0;
-       
+        int newNumber = 0;
+        int len = 0;
     // ***** create objects *******
     
         //ConsoleReader console = new ConsoleReader(System.in);
@@ -92,11 +93,15 @@ public class Question1to5 {  // begin class
             printReverse(actualLength, list);
             System.out.println("   ");
             
-           // index = Integer.parseInt(JOptionPane.showInputDialog("Enter the position of the number you would like to know."));
             System.out.println("Number chosen: ");
             printIndex(list,index);
             System.out.println("   ");
             
+            System.out.println("Modifide list: ");
+            changeIndex(list,newNumber);
+            printList(actualLength, list);
+            System.out.println("   ");
+         
             
     // ******** closing message *********
         
@@ -195,6 +200,33 @@ public class Question1to5 {  // begin class
             return index;
             
     } // end print index
+    
+    /***********************************************************
+    *   Purpose: Print the number the user choose
+    *   Interface:  int actualLength --> len: actual length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    no return
+    /**************************************************************/
+    public static void changeIndex(int[] list, int newNumber){
+        
+           // int i = index; 
+            int index = 0;
+            index = Integer.parseInt(JOptionPane.showInputDialog("Enter the position of the number you want to change."));
+       
+            while(index != -1){
+                
+                 newNumber = Integer.parseInt(JOptionPane.showInputDialog("Enter the new number"));
+                 list[index] = newNumber;
+                 
+                 
+                 index = Integer.parseInt(JOptionPane.showInputDialog("Do you want to change a new number? Enter the position if so; enter -1 to quit"));
+                  
+            }//end index != -1
+          
+            
+    } // end print index
+        
+ 
         
     
  /***********************************************************
