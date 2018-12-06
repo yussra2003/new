@@ -58,6 +58,8 @@ public class Question1to5 {  // begin class
         int index = 0;
         int newNumber = 0;
         int len = 0;
+        int smallNumber = 0;
+        int bigNumber = 0;
     // ***** create objects *******
     
         //ConsoleReader console = new ConsoleReader(System.in);
@@ -101,7 +103,14 @@ public class Question1to5 {  // begin class
             changeIndex(list,newNumber);
             printList(actualLength, list);
             System.out.println("   ");
+            
+            System.out.println("Smallest Number: ");
+            smallNumber  = smallestNumber(actualLength, list);
+            System.out.println(list[smallNumber]);
          
+            System.out.println("Biggest Number: ");
+            bigNumber  = biggestNumber(actualLength, list);
+            System.out.println(list[bigNumber]);
             
     // ******** closing message *********
         
@@ -202,8 +211,8 @@ public class Question1to5 {  // begin class
     } // end print index
     
     /***********************************************************
-    *   Purpose: Print the number the user choose
-    *   Interface:  int actualLength --> len: actual length of list
+    *   Purpose: to change a specific number on the list
+    *   Interface:  int newNumber --> The new Number to be printed to the list
     *               list[] --> pointer to base address of array
     *   Returns:    no return
     /**************************************************************/
@@ -222,13 +231,50 @@ public class Question1to5 {  // begin class
                  index = Integer.parseInt(JOptionPane.showInputDialog("Do you want to change a new number? Enter the position if so; enter -1 to quit"));
                   
             }//end index != -1
-          
-            
+             
     } // end print index
         
- 
+         /***********************************************************
+    *   Purpose: Print the smallest number
+    *   Interface:  int Len --> len: length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    minimum index
+    /**************************************************************/
+  public static int smallestNumber(int len, int[] list){
+        int minimumValue = list[0];
+        int minimumIndex = 0;
         
-    
+        for(int i = 0; i < len; i++){
+            if(list[i] < list[minimumIndex]){
+                minimumValue = list[i];
+                minimumIndex = i;
+            } // end if list[i] < min value
+        
+        } // end for int i = 0
+        
+        return minimumIndex;
+    } // end findMinimumValue
+  
+    /***********************************************************
+    *   Purpose: Print the smallest number
+    *   Interface:  int Len --> len: length of list
+    *               list[] --> pointer to base address of array
+    *   Returns:    minimum index
+    /**************************************************************/
+  public static int biggestNumber(int len, int[] list){
+        int maximumValue = list[0];
+        int maximumIndex = 0;
+        
+        for(int i = 0; i < len; i++){
+            if(list[i] > list[maximumIndex]){
+                maximumValue = list[i];
+               maximumIndex = i;
+            } // end if list[i] < min value
+        
+        } // end for int i = 0
+        
+        return maximumIndex;
+    } // end findMinimumValue
  /***********************************************************
     *   Purpose: Create a banner string that can be used to 
     *           print the banner to a message dialog or the console
