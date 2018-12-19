@@ -2,7 +2,7 @@
  * Programmer:	Yussra Abdo M.
  * Class:  CS20S
  *
- * Assignment: Ax Qy
+ * Assignment: sub program 
  * Program Name:  name of public class
  *
  * Description: brief description of program

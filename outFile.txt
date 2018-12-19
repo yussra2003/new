@@ -1,8 +1,6 @@
 *******************************************
-Name:	Yussra Abdo
-Class:	CS20S
-Assignment: using static methods
+Name:		sveinson
+Class:		CS20S
+Assignment:	Ax Qy
 *******************************************
-
-
-end of processing.
+end of proecessing
